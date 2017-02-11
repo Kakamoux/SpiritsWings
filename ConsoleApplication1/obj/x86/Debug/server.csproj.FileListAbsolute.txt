@@ -1,0 +1,11 @@
+C:\Users\Spirits\Documents\Series3D1 - Copie (2)\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\Users\Spirits\Documents\Series3D1 - Copie (2)\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\Spirits\Documents\Series3D1 - Copie (2)\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\Spirits\Documents\Series3D1 - Copie (2)\ConsoleApplication1\bin\Debug\serveur.dll
+C:\Users\Spirits\Documents\Series3D1 - Copie (2)\ConsoleApplication1\bin\Debug\serveur.pdb
+C:\Users\Spirits\Documents\Series3D1 - Copie (2)\ConsoleApplication1\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Spirits\Documents\Series3D1 - Copie (2)\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.exe
+C:\Users\Spirits\Documents\Series3D1 - Copie (2)\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.pdb
+E:\Documents\Données Matthieu\Projet .net\SpiritsWings\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+E:\Documents\Données Matthieu\Projet .net\SpiritsWings\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.exe
+E:\Documents\Données Matthieu\Projet .net\SpiritsWings\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.pdb

@@ -1,0 +1,2 @@
+G:\XNA Game Source\menusample-menusample\Content\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\Content\obj\x86\Release\ResolveAssemblyReference.cache

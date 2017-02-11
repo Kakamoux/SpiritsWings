@@ -1,0 +1,458 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline" xmlns:Framework="Microsoft.Xna.Framework" xmlns:Processors="Microsoft.Xna.Framework.Content.Pipeline.Processors">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>blank.png</Source>
+      <Name>blank</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\blank.xnb</Output>
+      <Time>2011-04-26T14:42:50+02:00</Time>
+    </Item>
+    <Item>
+      <Source>gradient.png</Source>
+      <Name>gradient</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\gradient.xnb</Output>
+      <Time>2011-04-26T14:42:50+02:00</Time>
+    </Item>
+    <Item>
+      <Source>background.jpg</Source>
+      <Name>background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\background.xnb</Output>
+      <Time>2011-04-26T14:42:50+02:00</Time>
+    </Item>
+    <Item>
+      <Source>bullet.jpg</Source>
+      <Name>bullet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\bullet.xnb</Output>
+      <Time>2012-03-31T10:52:02+02:00</Time>
+    </Item>
+    <Item>
+      <Source>heightmap.bmp</Source>
+      <Name>heightmap</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\heightmap.xnb</Output>
+      <Time>2012-03-31T10:52:02+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox_Back.JPG</Source>
+      <Name>Skybox_Back</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\Skybox_Back.xnb</Output>
+      <Time>2012-03-31T10:52:02+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox_Bottom.JPG</Source>
+      <Name>Skybox_Bottom</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\Skybox_Bottom.xnb</Output>
+      <Time>2012-03-31T10:52:02+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox_Front.JPG</Source>
+      <Name>Skybox_Front</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\Skybox_Front.xnb</Output>
+      <Time>2012-03-31T10:52:02+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox_Left.JPG</Source>
+      <Name>Skybox_Left</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\Skybox_Left.xnb</Output>
+      <Time>2012-03-31T10:52:02+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox_Right.JPG</Source>
+      <Name>Skybox_Right</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\Skybox_Right.xnb</Output>
+      <Time>2012-03-31T10:52:02+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox_Top.JPG</Source>
+      <Name>Skybox_Top</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\Skybox_Top.xnb</Output>
+      <Time>2012-03-31T10:52:02+02:00</Time>
+    </Item>
+    <Item>
+      <Source>grass.dds</Source>
+      <Name>grass</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\grass.xnb</Output>
+      <Time>2012-04-04T13:45:22+02:00</Time>
+    </Item>
+    <Item>
+      <Source>rock.dds</Source>
+      <Name>rock</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\rock.xnb</Output>
+      <Time>2012-04-04T13:45:26+02:00</Time>
+    </Item>
+    <Item>
+      <Source>sand.dds</Source>
+      <Name>sand</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\sand.xnb</Output>
+      <Time>2012-04-04T13:45:28+02:00</Time>
+    </Item>
+    <Item>
+      <Source>snow.dds</Source>
+      <Name>snow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\snow.xnb</Output>
+      <Time>2012-04-04T13:45:36+02:00</Time>
+    </Item>
+    <Item>
+      <Source>tree.dds</Source>
+      <Name>tree</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\tree.xnb</Output>
+      <Time>2012-04-04T13:45:40+02:00</Time>
+    </Item>
+    <Item>
+      <Source>waterbump.dds</Source>
+      <Name>waterbump</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\waterbump.xnb</Output>
+      <Time>2012-04-04T13:45:46+02:00</Time>
+    </Item>
+    <Item>
+      <Source>cloudMap.jpg</Source>
+      <Name>cloudMap</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\cloudMap.xnb</Output>
+      <Time>2012-04-04T13:45:18+02:00</Time>
+    </Item>
+    <Item>
+      <Source>treeMap.jpg</Source>
+      <Name>treeMap</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\treeMap.xnb</Output>
+      <Time>2012-04-04T13:45:42+02:00</Time>
+    </Item>
+    <Item>
+      <Source>test.bmp</Source>
+      <Name>test</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\test.xnb</Output>
+      <Time>2012-04-04T14:51:46+02:00</Time>
+    </Item>
+    <Item>
+      <Source>explosion.png</Source>
+      <Name>explosion</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\explosion.xnb</Output>
+      <Time>2012-04-11T13:03:25.5333115+02:00</Time>
+    </Item>
+    <Item>
+      <Source>fire.png</Source>
+      <Name>fire</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\fire.xnb</Output>
+      <Time>2012-04-11T13:03:25.5363117+02:00</Time>
+    </Item>
+    <Item>
+      <Source>smoke.png</Source>
+      <Name>smoke</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\smoke.xnb</Output>
+      <Time>2012-04-11T13:39:51.5933626+02:00</Time>
+    </Item>
+    <Item>
+      <Source>menufont.spritefont</Source>
+      <Name>menufont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\menufont.xnb</Output>
+      <Time>2011-04-26T14:42:50+02:00</Time>
+    </Item>
+    <Item>
+      <Source>SpriteFont1.spritefont</Source>
+      <Name>SpriteFont1</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\SpriteFont1.xnb</Output>
+      <Time>2012-03-31T10:52:02+02:00</Time>
+    </Item>
+    <Item>
+      <Source>gamefont.spritefont</Source>
+      <Name>gamefont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\gamefont.xnb</Output>
+      <Time>2011-08-15T21:36:24+02:00</Time>
+    </Item>
+    <Item>
+      <Source>effects.fx</Source>
+      <Name>effects</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\effects.xnb</Output>
+      <Time>2012-03-31T10:52:02+02:00</Time>
+    </Item>
+    <Item>
+      <Source>bbEffect.fx</Source>
+      <Name>bbEffect</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\bbEffect.xnb</Output>
+      <Time>2012-04-04T13:44:54+02:00</Time>
+    </Item>
+    <Item>
+      <Source>ParticleEffect.fx</Source>
+      <Name>ParticleEffect</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\ParticleEffect.xnb</Output>
+      <Time>2012-04-11T13:03:25.5383118+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Series4Effects.fx</Source>
+      <Name>Series4Effects</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\Series4Effects.xnb</Output>
+      <Time>2012-04-11T12:51:51.1911799+02:00</Time>
+    </Item>
+    <Item>
+      <Source>matthieu.x</Source>
+      <Name>matthieu</Name>
+      <Importer>XImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\matthieu.xnb</Output>
+      <Time>2012-03-31T10:52:02+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Release\matthieu_0.xml</Key>
+        <Value>2012-04-27T15:29:01.3117071+02:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>skybox.x</Source>
+      <Name>skybox</Name>
+      <Importer>XImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\skybox.xnb</Output>
+      <Time>2012-03-31T10:52:02+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Release\skybox_0.xml</Key>
+        <Value>2012-04-27T15:29:01.7897344+02:00</Value>
+      </Dependency>
+      <Request>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\SkyBox_Top_0.xnb</Request>
+      <Request>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\SkyBox_Right_0.xnb</Request>
+      <Request>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\SkyBox_Left_0.xnb</Request>
+      <Request>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\SkyBox_Front_0.xnb</Request>
+      <Request>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\SkyBox_Back_0.xnb</Request>
+      <Request>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\SkyBox_Bottom_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>matthieu.x</Source>
+      <Importer>XImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Release\matthieu_0.xml</Output>
+      <Time>2012-03-31T10:52:02+02:00</Time>
+    </Item>
+    <Item>
+      <Source>skybox.x</Source>
+      <Importer>XImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Release\skybox_0.xml</Output>
+      <Time>2012-03-31T10:52:02+02:00</Time>
+    </Item>
+    <Item>
+      <Source>SkyBox_Top.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\SkyBox_Top_0.xnb</Output>
+      <Time>2012-03-31T10:52:02+02:00</Time>
+    </Item>
+    <Item>
+      <Source>SkyBox_Right.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\SkyBox_Right_0.xnb</Output>
+      <Time>2012-03-31T10:52:02+02:00</Time>
+    </Item>
+    <Item>
+      <Source>SkyBox_Left.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\SkyBox_Left_0.xnb</Output>
+      <Time>2012-03-31T10:52:02+02:00</Time>
+    </Item>
+    <Item>
+      <Source>SkyBox_Front.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\SkyBox_Front_0.xnb</Output>
+      <Time>2012-03-31T10:52:02+02:00</Time>
+    </Item>
+    <Item>
+      <Source>SkyBox_Back.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\SkyBox_Back_0.xnb</Output>
+      <Time>2012-03-31T10:52:02+02:00</Time>
+    </Item>
+    <Item>
+      <Source>SkyBox_Bottom.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\SkyBox_Bottom_0.xnb</Output>
+      <Time>2012-03-31T10:52:02+02:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
+      <BuildConfiguration>Release</BuildConfiguration>
+      <CompressContent>true</CompressContent>
+      <RootDirectory>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\Content\obj\x86\Release\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Spirits\Desktop\XNA Game Source\menusample-menusample\MenuSample\bin\x86\Release\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T13:41:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T13:41:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2012-03-10T13:12:03.9135352+01:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

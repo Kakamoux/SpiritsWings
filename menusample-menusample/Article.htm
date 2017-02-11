@@ -1,0 +1,344 @@
+<p style="text-align: center;"><img class="size-medium wp-image-15591 aligncenter" title="menu" src="http://www.mti.epita.fr/blogs/wp-content/uploads/2011/04/menu-300x174.png" alt="Menu" width="300" height="174" /></a></p>
+
+<p>Les menus sont le point d'entrée de tous les jeux, or il se trouve que le framework XNA sert justement à développer des jeux. Que ce soit le menu principal, le menu de pause ou le menu d'options, un système permet de gérer les menus.</p>
+
+<p>L'objectif de cet article est de connaitre les points importants pour développer un système de menu suffisamment simple et générique pour permettre d'être réutilisé, capable de gérer les menus de pause, d'options mais également les écrans de chargement.</p>
+
+<p><a href="https://gitorious.org/menusample/menusample/commits/master">Le code source sur gitorious.</a></p>
+
+<!--more-->
+
+<p>Attention, cet article est destiné aux développeurs maîtrisant déjà le langage C# et ayant des bases dans le développement XNA.</p>
+						
+<h2>Introduction</h2>
+
+<p>Si vous avez déjà développé des jeux vidéos, vous avez sans doute déjà développé un système de menu. Un système de menu n'est pas toujours une chose évidente à mettre en place.</p>
+
+<h2>La théorie</h2>
+
+<p>Sans menu, une simple classe Game représentant le jeu suffit souvent. Avec un menu, il faut rajouter des classes.</p>
+
+<h3>La scène unique</h3>
+
+<p>Cette implémentation plutôt naïve des menus part du principe que le menu est lui aussi un "jeu", ainsi le menu disparait complètement lorsque qu'il laisse place au jeu et vice versa.</p>
+
+<p style="text-align: center;"><a href="http://www.mti.epita.fr/blogs/wp-content/uploads/2011/04/modele1.png"><img class="size-medium wp-image-15588 aligncenter" title="modele1" src="http://www.mti.epita.fr/blogs/wp-content/uploads/2011/04/modele1-300x244.png" alt="Modele 1" width="300" height="244" /></a></p>
+
+<p>Cette implémentation va être vite abandonnée car peu souple. Elle ne permet pas d'être réutilisée facilement dans un autre projet.</p>
+
+<h3>La pile de scène</h3>
+
+<p>Cette implémentation, un peu plus complexe que la précédente permet la séparation de la gestion des scènes de jeu, dans ce cas également, le jeu se trouve au même niveau que le menu, à la différence près que le jeu et le menu sont des couches superposables.</p>
+
+<p style="text-align: center;"><a href="http://www.mti.epita.fr/blogs/wp-content/uploads/2011/04/modele2.png"><img class="size-medium wp-image-15589 aligncenter" title="modele2" src="http://www.mti.epita.fr/blogs/wp-content/uploads/2011/04/modele2-300x247.png" alt="Modele 2" width="300" height="247" /></a></p>
+
+<p>C'est donc cette implémentation qui va être utilisée dans ce tutoriel. Voici un schéma explicatif de la manière dont fonctionne ce système:</p>
+
+<p style="text-align: center;"><a href="http://www.mti.epita.fr/blogs/wp-content/uploads/2011/04/pile1.png"><img class="size-full wp-image-15590 aligncenter" title="pile1" src="http://www.mti.epita.fr/blogs/wp-content/uploads/2011/04/pile1.png" alt="Pile" width="500" height="375" /></a></p>
+
+<p>Dans ce genre de représentation, c'est souvent la dernière couche empilée qui doit être mise à jour et qui interprète les entrées utilisateur.</p>
+
+<h2>L'implémentation en XNA avec les explications détaillées</h2>
+
+<p>Le système de menu se décompose en 3 parties:
+<ul>
+	<li>Les scènes abstraites, les briques de bases permettant de créer les différents menus et écrans de jeu grâce à un minimum de souplesse</li>
+	<li>Les scènes concrètes, les différents écrans du système, empilables</li>
+	<li>Le gestionnaire de scènes, la classe centrale du système</li>
+</ul></p>
+
+<h3>Votre première scène abstraite</h3>
+
+<p>Une scène est une couche simple qui possède sa propre logique de mise à jour et de dessin, et qui peut être combiné avec d'autres couches pour créer un système de menu complexe. Elle est abstraite et hérite de DrawableGameComponent, classe native du framework XNA. Ce type de composant, une fois ajouté dans la liste Components du jeu, est en principe automatiquement initialisé, dessiné et mis à jour.</p>
+
+<p>Voici une énumération utile pour la gestion des scènes:
+<pre lang="csharp">
+public enum SceneState
+{
+    TransitionOn,
+    Active,
+    TransitionOff,
+    Hidden,
+}
+</pre><p>
+
+<p>Ainsi,
+<ul>
+	<li>TransitionOn indique que la scène est en cours d'apparition</li>
+	<li>Active indique que la scène est chargée et active</li>
+	<li>TransitionOff indique que la scène est en cours de disparition</li>
+	<li>Hidden indique que la scène est déchargée et inactive</li>
+</ul>
+</p>
+	
+<p>Voici les informations essentielles à stocker pour d'une scène de jeu de base:
+<ul>
+	<li>un booléen pour indiquer si la scène est une simple pop-up (menu de pause, menu de confirmation, ...) ou bien une scène complète</li>
+	<li>deux TimeSpan, un pour la durée de la transition d'activation, et un pour la durée de la transition de désactivation</li>
+	<li>un flottant représentant l'avancée de la transition, sa valeur pouvant varier de zéro (pas de transition, scène pleinement active) à un (désactivation achevée)</li>
+	<li>un champ de type SceneState pour récupérer son état de transition</li>
+	<li>un booléen pour indiquer si une autre scène est au dessus de celle ci</li>
+	<li>un champ de type SceneManager pour récupérer le gestionnaire de la scène</li>
+	<li>un booléen pour indiquer si la scène est en cours de désactivation définitive ou non (et non pas simplement recouverte par un pop-up), si ce booléen est passé à vrai, la scène se retirera automatiquement une fois la transition terminée</li>
+</ul></p>
+
+<p>Note: une pop-up est un "pseudo-fenêtre" qui ne recouvre pas entièrement la scène précédente.</p>
+	
+<pre lang="csharp">
+private bool _isPopup;
+private TimeSpan _transitionOnTime = TimeSpan.Zero;
+private TimeSpan _transitionOffTime = TimeSpan.Zero;
+private float _transitionPosition = 1;
+private SceneState _sceneState = SceneState.TransitionOn;
+private bool _othersceneHasFocus;
+private readonly SceneManager _sceneManager;
+private bool _isExiting;
+</pre>
+
+<p>Notez les valeurs d'initialisation de ces attributs. Aussi, créez des getters/setters pour chacun de ces attributs, en ajoutant ces deux getters:
+<ul>
+	<li>un flottant représentant l'alpha à appliquer à la scène courante (pour la fade to black, cette valeur vaut 1 - _transitionPosition</li>
+	<li>un booléen permettant de savoir si la scène est active et peut répondre aux entrées utilisateurs</li>
+</ul></p>
+	
+<pre lang="csharp">
+public float TransitionAlpha
+{
+	get { return 1f - TransitionPosition; }
+}
+		
+protected bool IsActive
+{
+	get
+	{
+		return !_othersceneHasFocus &&
+			   (_sceneState == SceneState.TransitionOn ||
+			    _sceneState == SceneState.Active);
+	}
+}
+</pre>
+
+<p>Le constructeur est vraiment simple, on y récupère juste le SceneManager, et passons au constructeur de base (DrawableGameComponent) l'instance du jeu.</p>
+
+<pre lang="csharp">
+protected AbstractGameScene(SceneManager sceneMgr)
+	: base(sceneMgr.Game)
+{
+	_sceneManager = sceneMgr;
+}
+</pre>
+
+<p>Pour la mise à jour des informations de la scène, telle que la gestion des transitions, la méthode Update est utilisée, l'utilisation de la fonction Update du DrawableGameComponent n'est pas utilisée ici car nous souhaitons y apporter des informations assez volatiles.</p>
+
+<pre lang="csharp">
+public virtual void Update(GameTime gameTime, bool othersceneHasFocus, bool coveredByOtherscene)
+{
+	_othersceneHasFocus = othersceneHasFocus;
+
+	if (_isExiting)
+	{
+		// Si la scène est sur le point d'être quittée, désactivation de la scène
+		_sceneState = SceneState.TransitionOff;
+
+		// Quand la transition est finie, on retire la scène
+		if (!UpdateTransition(gameTime, _transitionOffTime, 1))
+			_sceneManager.RemoveScene(this);
+	}
+	else if (coveredByOtherscene)
+	{
+		// Si la scène est recouverte, désactivation de la scène
+		_sceneState = UpdateTransition(gameTime, _transitionOffTime, 1)
+			// Transition en cours
+			? SceneState.TransitionOff
+			// Transition terminée
+			: SceneState.Hidden;
+	}
+	else
+	{
+		// Sinon activation de la scène
+		_sceneState = UpdateTransition(gameTime, _transitionOnTime, -1)
+			// Transition en cours
+			? SceneState.TransitionOn
+			// Transition terminée
+			: SceneState.Active;
+	}
+}
+
+private bool UpdateTransition(GameTime gameTime, TimeSpan time, int direction)
+{
+	float transitionDelta = time == TimeSpan.Zero
+			? 1
+			: (float) (gameTime.ElapsedGameTime.TotalMilliseconds
+				/time.TotalMilliseconds);
+
+				_transitionPosition += transitionDelta * direction;
+
+    // Est-on arrivé à la fin de la transition?
+	bool endTransition = ((direction < 0) && (_transitionPosition <= 0)) ||
+						 ((direction > 0) && (_transitionPosition >= 1));
+	if (endTransition)
+		_transitionPosition = MathHelper.Clamp(_transitionPosition, 0, 1);
+	return !endTransition;
+}
+
+public virtual void HandleInput() { }
+</pre>
+
+<p>Remarquez la méthode HandleInput, elle sera appelée uniquement lorsque la scène est active, contrairement à la méthode Update, appelée systématiquement quelque soit sont état. La méthode UpdateTransition avance ou recule l'indicateur d'avancement d'une transition.</p>
+
+<p>Nous avons ensuite 2 méthodes spéciales permettant d'ajouter ou de retirer la dite scène de la liste de scènes.</p>
+
+<pre lang="csharp">
+public void Remove()
+{
+	// Si la scène a un temps de désactivation nul, retrait immédiat
+	// de la scène, sinon, désactivation de la scène
+	if (_transitionOffTime == TimeSpan.Zero)
+		_sceneManager.RemoveScene(this);
+	else
+		_isExiting = true;
+}
+
+public void Add()
+{
+	_sceneManager.AddScene(this);
+}
+</pre>
+
+<p>Toutes les autres scènes devront hériter de cette classe pour utiliser le système de menu. Pour des exemples de scènes concrètes, veuillez jeter un coup d'oeil dans l'archive de code source, disponible <a href="https://gitorious.org/menusample/menusample/commits/master">ici</a>.</p>
+
+<h3>Le gestionnaire de scènes</h3>
+
+<p>Le gestionnaire de scènes est un composant que gère des instances de scènes. Il maintient une pile de scène, appelle leur Update (le Draw est appelé automatiquement) et limite les entrées utilisateurs à la première scène active de la pile. Il hérite de DrawableGameComponent.</p>
+	
+<p>Voici les attributs importants du gestionnaire de scènes:
+<ul>
+	<li>une liste de scène pour l'implémentation de la pile de scène</li>
+	<li>une pile temporaire de scène pour les mettre à jour</li>
+	<li>un spritebatch pour les partager entre toutes les instances de scènes</li>
+</ul></p>
+
+<pre lang="csharp">
+private readonly List<AbstractGameScene> _scenes = new List<AbstractGameScene>();
+private readonly List<AbstractGameScene> _scenesToUpdate = new List<AbstractGameScene>();
+private SpriteBatch _spriteBatch;
+private SpriteFont _font;
+private Texture2D _blankTexture;
+</pre>
+
+<p>La méthode Update s'occupe du "dispatch" de l'entrée utilisateur mais également de la gestion de l'affichage ou non des scènes sous-jacentes.</p>
+
+<pre lang="csharp">
+public override void Update(GameTime gameTime)
+{
+	// Fait un copie de la liste principale pour éviter la confusion des
+	// processus mettant à jour une scène ou en retirant une.
+	_scenesToUpdate.Clear();
+
+	foreach (AbstractGameScene scene in _scenes)
+		_scenesToUpdate.Add(scene);
+
+	bool othersceneHasFocus = !Game.IsActive;
+	bool coveredByOtherscene = false;
+
+	while (_scenesToUpdate.Count > 0)
+	{
+		AbstractGameScene scene = _scenesToUpdate[_scenesToUpdate.Count - 1];
+		_scenesToUpdate.RemoveAt(_scenesToUpdate.Count - 1);
+		scene.Update(gameTime, othersceneHasFocus, coveredByOtherscene);
+
+		if (scene.SceneState == SceneState.TransitionOn ||
+			scene.SceneState == SceneState.Active)
+		{
+			// Si c'est la première scène, lui donner l'accès aux entrées utilisateur.
+			if (!othersceneHasFocus)
+			{
+				scene.HandleInput();
+				othersceneHasFocus = true;
+			}
+
+			// Si la scène courant n'est pas un pop-up et est active,
+			// informez les scènes suivantes qu'elles sont recouverte.
+			if (!scene.IsPopup)
+				coveredByOtherscene = true;
+		}
+	}
+}
+</pre>
+
+<p>Les méthodes publiques AddScene et RemoveScene servent à modifier la liste de scène, et FadeBackBufferToBlack aide à assombrir le fond lors de l'affichage d'une pop-up.</p>
+
+<pre lang="csharp">
+public void AddScene(AbstractGameScene scene)
+{
+	scene.IsExiting = false;
+	Game.Components.Add(scene);
+	_scenes.Add(scene);
+}
+
+public void RemoveScene(AbstractGameScene scene)
+{
+	Game.Components.Remove(scene);
+	_scenes.Remove(scene);
+	_scenesToUpdate.Remove(scene);
+}
+
+public void FadeBackBufferToBlack(float alpha)
+{
+	Viewport viewport = GraphicsDevice.Viewport;
+
+	_spriteBatch.Begin();
+	_spriteBatch.Draw(_blankTexture,
+					 new Rectangle(0, 0, viewport.Width, viewport.Height),
+					 Color.Black * alpha);
+	_spriteBatch.End();
+}
+</pre>
+
+<h3>Usage</h3>
+
+<p>Pour utiliser le gestionnaire de scènes, rien de plus simple. Il faut d'abord développer quelques scènes concrètes, prenons BackgroundScene et MainMenuScene présents dans l'archive de code source (disponible <a href="https://gitorious.org/menusample/menusample/commits/master">ici</a>).</p>
+
+<p>Il va falloir coder la classe du jeu qui servira de point d'entrée du programme. Cette classe est extrêmement simple car tout se passe dans le gestionnaire de scènes.</p>
+
+<pre lang="csharp">
+public class MenuSampleGame : Game
+{
+	public MenuSampleGame()
+	{
+		Content.RootDirectory = "Content";
+
+		// Initialisation du GraphicsDeviceManager
+		// pour obtenir une fenêtre de dimensions 800*480
+		new GraphicsDeviceManager(this) {
+			PreferredBackBufferWidth = 800,
+			PreferredBackBufferHeight = 480
+		};
+
+		// Création du gestionnaire de scènes
+		var sceneMgr = new SceneManager(this);
+
+		// Mise à jour automatique des entrées utilisateur
+		// et du gestionnaire de scènes
+		Components.Add(new InputState(this));
+		Components.Add(sceneMgr);
+
+		// Activation des premières scènes
+		new BackgroundScene(sceneMgr).Add();
+		new MainMenuScene(sceneMgr).Add();
+	}
+	
+	public static void Main()
+	{
+		// Point d'entrée
+		using (var game = new MenuSampleGame())
+			game.Run();
+	}
+}
+</pre>
+
+<p>Notez bien que la classe du jeu hérite de Game, classe native du Framework XNA.</p>
+
+<h2>Conclusion</h2>
+
+<p>Vous voilà prêt à développer un système de menu extensible, générique et réutilisable. Des axes d'améliorations sont visibles: gestion d'autres types d'entrées utilisateurs (gestures, touch, manettes supplémentaires), amélioration des évènements dans les menus...</p>

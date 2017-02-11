@@ -1,0 +1,5 @@
+C:\Users\Spirits\Documents\Series3D1 - Copie (2)\serveur\bin\serveur.dll
+C:\Users\Spirits\Documents\Series3D1 - Copie (2)\serveur\bin\serveur.pdb
+C:\Users\Spirits\Documents\Series3D1 - Copie (2)\serveur\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Spirits\Documents\Series3D1 - Copie (2)\serveur\obj\Release\serveur.dll
+C:\Users\Spirits\Documents\Series3D1 - Copie (2)\serveur\obj\Release\serveur.pdb
